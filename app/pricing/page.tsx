@@ -463,37 +463,57 @@ export default function PricingPage() {
           <div className="grid grid-cols-4">
 
             {[
-              [BrainCircuit, "AI-Powered", "Smart automation"],
-              [ShieldCheck, "Secure & Compliant", "Enterprise-grade security"],
-              [TrendingUp, "Scalable", "Grow without limits"],
-              [Headphones, "24/7 Support", "We’re here anytime"],
-            ].map(([Icon, title, subtitle], i) => (
-              <div
-                key={i}
-                className={`flex items-center gap-4 px-8 ${
-                  i !== 3 ? "border-r border-white/10" : ""
-                }`}
-              >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center">
-                  <Icon
-                    size={40}
-                    strokeWidth={1.8}
-                    className="text-transparent"
-                    style={{ stroke: "url(#icon-gradient)" }}
-                  />
-                </div>
+  {
+    icon: BrainCircuit,
+    title: "AI-Powered",
+    subtitle: "Smart automation",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure & Compliant",
+    subtitle: "Enterprise-grade security",
+  },
+  {
+    icon: TrendingUp,
+    title: "Scalable",
+    subtitle: "Grow without limits",
+  },
+  {
+    icon: Headphones,
+    title: "24/7 Support",
+    subtitle: "We’re here anytime",
+  },
+].map((item, i) => {
+  const Icon = item.icon as React.ElementType;
 
-                <div>
-                  <p className="text-sm font-medium text-white">
-                    {title}
-                  </p>
+  return (
+    <div
+      key={i}
+      className={`flex items-center gap-4 px-8 ${
+        i !== 3 ? "border-r border-white/10" : ""
+      }`}
+    >
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center">
+        <Icon
+          size={40}
+          strokeWidth={1.8}
+          className="text-transparent"
+          style={{ stroke: "url(#icon-gradient)" }}
+        />
+      </div>
 
-                  <p className="text-xs text-slate-400">
-                    {subtitle}
-                  </p>
-                </div>
-              </div>
-            ))}
+      <div>
+        <p className="text-sm font-medium text-white">
+          {item.title}
+        </p>
+
+        <p className="text-xs text-slate-400">
+          {item.subtitle}
+        </p>
+      </div>
+    </div>
+  );
+})}
 
           </div>
         </div>
