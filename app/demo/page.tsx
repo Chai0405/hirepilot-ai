@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Inter } from "next/font/google";
+import React from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -180,7 +181,7 @@ const visibleTestimonials = testimonials.slice(
     iconBg: "from-pink-500/35 to-fuchsia-400/15",
   },
 ].map((item, i) => {
-  const Icon = item.icon;
+  const Icon = item.icon as React.ElementType;
 
   return (
     <div
@@ -483,7 +484,7 @@ const visibleTestimonials = testimonials.slice(
           iconBg: "from-teal-400/35 to-cyan-400/15",
         },
       ].map((item, i) => {
-        const Icon = item.icon;
+        const Icon = item.icon as React.ElementType;
 
         return (
           <div

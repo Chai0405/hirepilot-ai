@@ -19,6 +19,7 @@ import {
   Building2,
 } from "lucide-react";
 import Link from "next/link";
+import React from "react";
 
 export default function Features() {
   const features = [
@@ -1024,7 +1025,7 @@ export default function Features() {
       icon: Building2,
     },
   ].map((item, i) => {
-    const Icon = item.icon;
+    const Icon = item.icon as React.ElementType;
 
     return (
       <div key={i} className="flex items-start gap-4">

@@ -18,6 +18,7 @@ import {
   ChevronRight 
 } from "lucide-react";
 import { Inter } from "next/font/google";
+import React from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -227,7 +228,7 @@ className="relative -py-2 px-6 lg:px-20 scroll-mt-24">
           icon: Globe,
         },
       ].map((item, i) => {
-        const Icon = item.icon;
+        const Icon = item.icon as React.ElementType;
 
         return (
           <div
@@ -236,9 +237,9 @@ className="relative -py-2 px-6 lg:px-20 scroll-mt-24">
 >
 
             {/* Gradient Glow */}
-            <div
+            {/* <div
               className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-60 group-hover:opacity-100 transition-all duration-500`}
-            />
+            /> */}
 
             <div className="relative z-10">
 
@@ -342,7 +343,7 @@ className="relative -py-2 px-6 lg:px-20 scroll-mt-24">
           icon: Building,
         },
       ].map((item, i) => {
-        const Icon = item.icon;
+        const Icon = item.icon as React.ElementType;
 
         return (
           <div

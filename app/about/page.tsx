@@ -14,6 +14,7 @@ import {
   Globe2,
 } from "lucide-react";
 import { Inter } from "next/font/google";
+import React from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -211,7 +212,7 @@ export default function AboutPage() {
                 icon: Users,
               },
             ].map((item, i) => {
-              const Icon = item.icon;
+              const Icon = item.icon as React.ElementType;
 
               return (
                 <div
@@ -410,7 +411,7 @@ export default function AboutPage() {
                 iconBg: "from-pink-500/35 to-fuchsia-400/15",
               },
             ].map((item, i) => {
-              const Icon = item.icon;
+              const Icon = item.icon as React.ElementType;
 
               return (
                 <div

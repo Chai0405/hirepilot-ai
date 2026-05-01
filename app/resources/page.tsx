@@ -13,6 +13,7 @@ FileSearch,
   MessageSquareQuote,
  } from "lucide-react";
 import { Inter } from "next/font/google";
+import React from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -226,7 +227,7 @@ export default function ResourcesPage() {
           
         },
       ].map((item, i) => {
-        const Icon = item.icon;
+        const Icon = item.icon as React.ElementType;
 
         return (
           <div
