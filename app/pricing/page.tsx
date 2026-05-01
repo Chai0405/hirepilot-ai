@@ -61,33 +61,54 @@ export default function PricingPage() {
               </span>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="mt-12 grid max-w-[300px] grid-cols-3 gap-1">
-              {[
-                [ShieldCheck, "14-Day", "Free Trial"],
-                [Clock3, "Cancel", "Anytime"],
-                [Lock, "Secure", "Payments"],
-              ].map(([Icon, title, subtitle], i) => (
-                <div
-                  key={i}
-                  className={`flex flex-col items-center text-center ${
-                    i !== 2 ? "border-r border-white/10" : ""
-                  }`}
-                >
-                  <div className="mb-3 flex h-12 w-12 items-center justify-center">
-                    <Icon
-                      size={40}
-                      strokeWidth={1.8}
-                      className="text-transparent"
-                      style={{ stroke: "url(#icon-gradient)" }}
-                    />
-                  </div>
+           {/* Trust Indicators */}
+<div className="mt-12 grid max-w-[300px] grid-cols-3 gap-1">
+  {[
+    {
+      icon: ShieldCheck,
+      title: "14-Day",
+      subtitle: "Free Trial",
+    },
+    {
+      icon: Clock3,
+      title: "Cancel",
+      subtitle: "Anytime",
+    },
+    {
+      icon: Lock,
+      title: "Secure",
+      subtitle: "Payments",
+    },
+  ].map((item, i) => {
+    const Icon = item.icon as React.ElementType;
 
-                  <p className="text-sm text-slate-400">{title}</p>
-                  <p className="text-sm text-slate-400">{subtitle}</p>
-                </div>
-              ))}
-            </div>
+    return (
+      <div
+        key={i}
+        className={`flex flex-col items-center text-center ${
+          i !== 2 ? "border-r border-white/10" : ""
+        }`}
+      >
+        <div className="mb-3 flex h-12 w-12 items-center justify-center">
+          <Icon
+            size={40}
+            strokeWidth={1.8}
+            className="text-transparent"
+            style={{ stroke: "url(#icon-gradient)" }}
+          />
+        </div>
+
+        <p className="text-sm text-slate-400">
+          {item.title}
+        </p>
+
+        <p className="text-sm text-slate-400">
+          {item.subtitle}
+        </p>
+      </div>
+    );
+  })}
+</div>
 
             {/* SVG Gradient */}
             <svg width="0" height="0">
