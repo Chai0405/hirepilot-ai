@@ -306,27 +306,52 @@ export default function Hero() {
     <div className="mt-1 rounded-[32px] border border-white/10 bg-gradient-to-r from-slate-900/80 to-slate-950/80 p-10 backdrop-blur-xl">
       <div className="grid gap-8 md:grid-cols-4">
         {[
-  [Users, "10K+", "Candidates Screened"],
-  [UserPlus, "500+", "Recruiters"],
-  [Zap, "95%", "Faster Hiring"],
-  [BarChart3, "40%", "Better ATS Match"],
-].map(([Icon, stat, label], index) => (
-  <div
-    key={stat as string}
-    className={`flex items-center justify-center gap-4 px-6 ${
-      index !== 3 ? "border-r border-white/10" : ""
-    }`}
-  >
-    <div className="text-blue-400">
-      <Icon size={30} strokeWidth={1.8} />
-    </div>
+  {
+    icon: Users,
+    stat: "10K+",
+    label: "Candidates Screened",
+  },
+  {
+    icon: UserPlus,
+    stat: "500+",
+    label: "Recruiters",
+  },
+  {
+    icon: Zap,
+    stat: "95%",
+    label: "Faster Hiring",
+  },
+  {
+    icon: BarChart3,
+    stat: "40%",
+    label: "Better ATS Match",
+  },
+].map((item, index) => {
+  const Icon = item.icon as React.ElementType;
 
-    <div>
-      <h3 className="text-4xl font-bold text-white">{stat}</h3>
-      <p className="mt-1 text-sm text-slate-400">{label}</p>
+  return (
+    <div
+      key={item.stat}
+      className={`flex items-center justify-center gap-4 px-6 ${
+        index !== 3 ? "border-r border-white/10" : ""
+      }`}
+    >
+      <div className="text-blue-400">
+        <Icon size={30} strokeWidth={1.8} />
+      </div>
+
+      <div>
+        <h3 className="text-4xl font-bold text-white">
+          {item.stat}
+        </h3>
+
+        <p className="mt-1 text-sm text-slate-400">
+          {item.label}
+        </p>
+      </div>
     </div>
-  </div>
-))}
+  );
+})}
 </div>
 </div>
 
